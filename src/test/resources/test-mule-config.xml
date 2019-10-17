@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:aws-kms="http://www.mulesoft.org/schema/mule/aws-kms"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/aws-kms http://www.mulesoft.org/schema/mule/aws-kms/current/mule-aws-kms.xsd">
+
+    <aws-kms:config name="config" configId="configId">
+        <aws-kms:connection requiredParameter="aValue" />
+    </aws-kms:config>
+
+    <flow name="sayHiFlow">
+        <aws-kms:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <aws-kms:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
